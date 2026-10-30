@@ -1,0 +1,5 @@
+reps,repeats,fallback_runs,approximation_ratio_mean,approximation_ratio_std,feasible_fraction_mean,feasible_fraction_std,optimal_fraction_mean,optimal_fraction_std,runtime_seconds_mean,runtime_seconds_std
+1,20,20,1.0,0.0,0.0,0.0,0.0,0.0,6.910827942192554e-05,7.042294937836861e-05
+2,20,20,1.0,0.0,0.0,0.0,0.0,0.0,4.8758444609120485e-05,1.0447699638149653e-06
+3,20,20,1.0,0.0,0.0,0.0,0.0,0.0,4.847483360208571e-05,4.872049440227734e-07
+4,20,20,1.0,0.0,0.0,0.0,0.0,0.0,4.943754756823182e-05,2.186869396349155e-06

@@ -1,0 +1,71 @@
+# Copy this file to config/settings.yaml and replace the placeholders locally.
+# Do not commit settings.yaml: it may contain local network details.
+
+camera:
+  # XIAO ESP32S3 Sense or another camera stream URL.
+  stream_url: "http://camera.example.invalid/stream"
+  # A USB webcam index can change when other cameras are connected.
+  # device_index: 1
+  # Safer on macOS: use the exact device name, which requires FFmpeg.
+  # avfoundation_device: "Android Webcam"
+  # avfoundation_framerate: 30
+  height_m: 2.0
+  aruco_dictionary: "DICT_4X4_50"
+  field_marker_ids: [0, 1, 2, 3]
+  field_size_m: 2.0
+  marker_size_m: 0.15
+  # Optional: marker centres in floor coordinates. If omitted, the four
+  # centres are mapped to (0,0), (field_size,0), (field_size,field_size),
+  # and (0,field_size), in field_marker_ids order.
+  # field_marker_positions_m:
+  #   0: [0.075, 0.075]
+  #   1: [1.925, 0.075]
+  #   2: [1.925, 1.925]
+  #   3: [0.075, 1.925]
+  # Optional camera nadir in the same floor coordinates. If omitted, the
+  # calibrated image centre is used.
+  # camera_center_floor_m: [1.0, 1.0]
+  drone_marker_id: 10
+  # YOLO-World is loaded only when the real camera adapter recognizes targets.
+  target_model: "yolov8s-worldv2.pt"
+  target_classes: ["start point", "delivery destination"]
+  target_confidence: 0.25
+  # For weak printed illustrations, retain the highest confidence per class
+  # across several current frames and require the listed destinations.
+  target_aggregation_frames: 1
+  required_target_classes: []
+  start_class: "start point"
+  start_label: "start"
+  # Use the top ArUco marker as START only while the drone is parked there.
+  start_from_drone_marker: false
+  start_marker_height_m: 0.0
+  # Number of successive reads used to discard stale MJPEG frames.
+  max_frame_reads: 4
+
+flight:
+  altitude_m: 0.5
+  hover_seconds: 2.0
+  speed_mps: 0.3
+
+route:
+  # Used by the QAOA route planner.
+  penalty: 2.0
+  reps: 2
+  shots: 4096
+  seed: 1234
+  maxiter: 60
+
+drone:
+  # StampFly Ecosystem: WiFi Tello-compatible text API over UDP.
+  # Keep the actual host only in the untracked config/settings.yaml.
+  mode: "mock"
+  host: "CHANGE_ME_LOCAL_STAMPFLY_HOST"
+  command_port: 8889
+  state_port: 8890
+  timeout_s: 1.0
+  retries: 2
+  # API go uses centimetres and cm/s. Project DroneLink uses metres and m/s.
+  go_min_cm: 10
+  go_max_cm: 300
+  speed_min_cm_s: 10
+  speed_max_cm_s: 100

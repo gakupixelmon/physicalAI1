@@ -1,0 +1,29 @@
+# Local configuration and secrets
+config/settings.yaml
+.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+.venv/
+.venv-qiskit/
+venv/
+
+# Generated experiment output. Keep the directory itself in the repository.
+results/*
+!results/.gitkeep
+!results/benchmark_qaoa.csv
+!results/figures/
+!results/figures/*.png
+
+# Downloaded YOLO-World / CLIP model weights
+*.pt
+weights/
+
+# Local IDE and OS files
+.DS_Store
+.idea/
+.vscode/

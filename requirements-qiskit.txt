@@ -1,0 +1,6 @@
+qiskit>=2.0,<3.0
+qiskit-optimization>=0.7,<0.8
+numpy>=2.0,<2.3
+opencv-contrib-python-headless>=4.12,<5.0
+pandas>=2.2,<4.0
+PyYAML>=6.0
